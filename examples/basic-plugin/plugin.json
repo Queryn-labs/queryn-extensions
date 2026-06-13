@@ -1,0 +1,11 @@
+{
+  "id": "basic-plugin",
+  "name": "Basic Plugin",
+  "version": "0.1.0",
+  "description": "Minimal example plugin metadata.",
+  "source": "examples/basic-plugin",
+  "permissions": ["commands:register"],
+  "osnova": {
+    "minVersion": "0.1.0"
+  }
+}
