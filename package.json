@@ -1,0 +1,14 @@
+{
+  "name": "osnova-extension-examples",
+  "version": "0.2.0",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@10.5.2",
+  "scripts": {
+    "test": "node scripts/validate.mjs",
+    "test:runtime": "node scripts/e2e-runtime.mjs"
+  },
+  "dependencies": {
+    "@osnova/plugin-sdk": "file:../osnova-plugin-sdk"
+  }
+}

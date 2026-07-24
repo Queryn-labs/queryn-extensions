@@ -1,36 +1,28 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://plugins.osnova.local/catalog/registry.schema.json",
-  "title": "Osnova Plugin Registry",
+  "title": "Osnova Extension Registry",
   "type": "object",
-  "required": ["plugins"],
+  "required": ["formatVersion", "extensions"],
   "additionalProperties": false,
   "properties": {
-    "plugins": {
+    "formatVersion": { "const": "1" },
+    "extensions": {
       "type": "array",
       "items": {
         "type": "object",
-        "required": ["id", "name", "version", "source", "permissions", "osnova"],
+        "required": ["id", "name", "version", "source", "kind", "permissions", "osnova", "signed"],
         "additionalProperties": false,
         "properties": {
-          "id": { "type": "string", "minLength": 1 },
+          "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9._-]+$" },
           "name": { "type": "string", "minLength": 1 },
-          "version": { "type": "string", "minLength": 1 },
+          "version": { "type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+" },
           "description": { "type": "string" },
           "source": { "type": "string", "minLength": 1 },
-          "permissions": {
-            "type": "array",
-            "items": { "type": "string" },
-            "uniqueItems": true
-          },
-          "osnova": {
-            "type": "object",
-            "required": ["minVersion"],
-            "additionalProperties": false,
-            "properties": {
-              "minVersion": { "type": "string" }
-            }
-          }
+          "kind": { "enum": ["theme", "tool", "advanced-tool"] },
+          "permissions": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+          "signed": { "type": "boolean" },
+          "osnova": { "type": "object", "required": ["minVersion"], "additionalProperties": false, "properties": { "minVersion": { "type": "string" } } }
         }
       }
     }

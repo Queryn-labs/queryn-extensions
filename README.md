@@ -1,29 +1,20 @@
 # osnova-plugins
 
-Каталог и примеры плагинов Osnova.
+Проверяемый каталог и reference-расширения Osnova Reborn.
 
-## Статус
+## Примеры
 
-Стартовая основа каталога.
+- `note-linter` — простой Tool, читающий входной Markdown и создающий отчёт-артефакт.
+- `advanced-media-tool` — Advanced Tool на Osnova Tool Protocol v1; отдельный процесс создаёт Markdown, WAV и SVG.
+- `oci-advanced-tool` — контейнерный вариант с digest-pinned image placeholder для Developer Mode.
+- `theme-minimal` — Theme без продуктовой логики.
+- `mcp-adapter` — декларация remote MCP runtime.
 
-## Лицензия
+## Проверка
 
-MIT.
+```bash
+npm install --ignore-scripts
+npm test
+```
 
-## Назначение
-
-Этот репозиторий содержит проверенные плагины, plugin metadata и примеры для экосистемы плагинов Osnova.
-
-## Команды
-
-Для стартовой версии каталога build step не требуется.
-
-## Связанные репозитории
-
-- `osnova-plugin-sdk` определяет контракт разработки плагинов.
-- `osnova-desktop` загружает плагины и проверяет permissions.
-- `osnova-core` предоставляет общие project primitives для host APIs.
-
-## Правила участия
-
-Каждая запись плагина должна объявлять identity, version, source, permissions и compatibility. Примеры плагинов должны оставаться небольшими и показывать одну возможность за раз.
+Каталог не является серверным marketplace: он хранит только проверяемые метаданные. Подписи и готовые пакеты публикуются отдельным release pipeline.

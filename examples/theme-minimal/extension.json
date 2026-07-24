@@ -1,0 +1,13 @@
+{
+  "manifestVersion": "1",
+  "id": "osnova-labs.minimal-theme",
+  "name": "Minimal Theme",
+  "version": "1.0.0",
+  "description": "Theme contribution with visual tokens only.",
+  "license": "MIT",
+  "osnova": { "minVersion": "0.2.0" },
+  "permissions": [],
+  "contributes": {
+    "themes": [{ "id": "osnova-labs.minimal-theme.dark", "title": "Minimal Dark", "tokens": "tokens.json" }]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "manifestVersion": "1",
+  "id": "osnova-labs.mcp-example",
+  "name": "MCP Adapter Example",
+  "version": "1.0.0",
+  "description": "Maps an explicit remote MCP tool to an Osnova operation.",
+  "license": "MIT",
+  "osnova": { "minVersion": "0.2.0" },
+  "permissions": ["artifact:read", "network:use", "background:run"],
+  "runtimes": [{ "id": "osnova-labs.mcp-example.runtime", "kind": "remote", "lifecycle": "shared", "endpoint": "http://127.0.0.1:3999/mcp", "protocol": "mcp", "idleTimeoutSeconds": 300, "resources": { "network": true } }],
+  "contributes": {
+    "tools": [{ "id": "osnova-labs.mcp-example.tool", "title": "Local MCP Example", "runtimeId": "osnova-labs.mcp-example.runtime" }],
+    "operations": [{ "id": "osnova-labs.mcp-example.search", "toolId": "osnova-labs.mcp-example.tool", "version": "1.0.0", "title": "Search through MCP", "inputSchema": { "type": "object", "required": ["query"], "properties": { "query": { "type": "string" } } }, "outputSchema": { "type": "object" }, "risk": "network-egress", "agentVisibility": "explicit", "execution": "job", "timeoutSeconds": 60, "cancellable": true, "idempotent": true, "permissions": ["network:use", "background:run"] }],
+    "artifactTypes": [{ "id": "osnova-labs.mcp-example.resource", "title": "MCP resource", "context": { "mode": "custom", "providerId": "osnova-labs.mcp-example.resource-context" } }],
+    "contextProviders": [{ "id": "osnova-labs.mcp-example.resource-context", "artifactTypes": ["osnova-labs.mcp-example.resource"], "version": "1.0.0", "runtimeId": "osnova-labs.mcp-example.runtime", "resourceUriTemplate": "osnova://resources/{artifactId}" }]
+  }
+}
