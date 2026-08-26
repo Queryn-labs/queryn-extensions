@@ -12,7 +12,7 @@ readline.createInterface({ input: process.stdin }).on("line", async (line) => {
     if (request.method === "shutdown") return reply(request.id, { ok: true });
     if (request.method !== "jobs/start") throw new Error(`Unknown method: ${request.method}`);
     await writeFile(path.join(request.params.paths.outbox, "result.md"), `# OCI result\n\n${request.params.input.text}\n`);
-    reply(request.id, { structured: { ok: true }, artifacts: [{ type: "osnova-labs.oci-media.output", title: "OCI result", payloads: [{ path: "result.md", mediaType: "text/markdown" }], context: { mode: "automatic" } }] });
+    reply(request.id, { structured: { ok: true }, artifacts: [{ type: "queryn-labs.oci-media.output", title: "OCI result", payloads: [{ path: "result.md", mediaType: "text/markdown" }], context: { mode: "automatic" } }] });
   } catch (error) {
     process.stdout.write(`${JSON.stringify({ jsonrpc: "2.0", id: request.id, error: { code: -32000, message: error instanceof Error ? error.message : String(error) } })}\n`);
   }

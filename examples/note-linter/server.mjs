@@ -13,7 +13,7 @@ readline.createInterface({ input: process.stdin }).on("line", async (line) => {
 async function dispatch(method, params) {
   if (method === "initialize") return { protocolVersion: "1", capabilities: { jobs: true, progress: true } };
   if (method === "health") return { status: "ready" };
-  if (method === "operations/list") return { operations: ["osnova-labs.note-linter.lint"] };
+  if (method === "operations/list") return { operations: ["queryn-labs.note-linter.lint"] };
   if (method === "shutdown") return { ok: true };
   if (method !== "jobs/start") throw new Error(`Unknown method: ${method}`);
   const manifest = JSON.parse(await readFile(path.join(params.paths.input, "artifacts.json"), "utf8"));
@@ -31,7 +31,7 @@ async function dispatch(method, params) {
   await mkdir(params.paths.outbox, { recursive: true });
   await writeFile(path.join(params.paths.outbox, "report.md"), report);
   notify("jobs/progress", { jobId: params.jobId, progress: 1, message: "Report created" });
-  return { structured: { issues: findings.length }, artifacts: [{ type: "osnova-labs.note-linter.report", title: "Note lint report", payloads: [{ path: "report.md", mediaType: "text/markdown" }], context: { mode: "automatic" } }] };
+  return { structured: { issues: findings.length }, artifacts: [{ type: "queryn-labs.note-linter.report", title: "Note lint report", payloads: [{ path: "report.md", mediaType: "text/markdown" }], context: { mode: "automatic" } }] };
 }
 
 function respond(id, result) { process.stdout.write(`${JSON.stringify({ jsonrpc: "2.0", id, result })}\n`); }

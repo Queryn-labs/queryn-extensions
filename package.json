@@ -1,5 +1,5 @@
 {
-  "name": "osnova-extension-examples",
+  "name": "queryn-extension-examples",
   "version": "0.2.0",
   "private": true,
   "type": "module",
@@ -9,6 +9,6 @@
     "test:runtime": "node scripts/e2e-runtime.mjs"
   },
   "dependencies": {
-    "@osnova/plugin-sdk": "file:../osnova-plugin-sdk"
+    "@queryn/plugin-sdk": "file:../queryn-sdk"
   }
 }

@@ -1,23 +1,23 @@
 {
   "manifestVersion": "1",
-  "id": "osnova-labs.note-linter",
+  "id": "queryn-labs.note-linter",
   "name": "Note Linter",
   "version": "1.0.0",
   "description": "Checks an input Markdown note and creates a reusable report artifact.",
   "license": "MIT",
-  "osnova": { "minVersion": "0.2.0" },
+  "queryn": { "minVersion": "0.2.0" },
   "permissions": ["artifact:read", "artifact:create"],
-  "runtimes": [{ "id": "osnova-labs.note-linter.runtime", "kind": "node-process", "lifecycle": "job", "entry": "server.mjs", "resources": { "cpu": 0.5, "memoryMb": 128, "diskMb": 32, "network": false } }],
+  "runtimes": [{ "id": "queryn-labs.note-linter.runtime", "kind": "node-process", "lifecycle": "job", "entry": "server.mjs", "resources": { "cpu": 0.5, "memoryMb": 128, "diskMb": 32, "network": false } }],
   "contributes": {
-    "tools": [{ "id": "osnova-labs.note-linter.tool", "title": "Note Linter", "runtimeId": "osnova-labs.note-linter.runtime" }],
+    "tools": [{ "id": "queryn-labs.note-linter.tool", "title": "Note Linter", "runtimeId": "queryn-labs.note-linter.runtime" }],
     "operations": [{
-      "id": "osnova-labs.note-linter.lint", "toolId": "osnova-labs.note-linter.tool", "version": "1.0.0", "title": "Check note",
+      "id": "queryn-labs.note-linter.lint", "toolId": "queryn-labs.note-linter.tool", "version": "1.0.0", "title": "Check note",
       "description": "Finds TODO markers, trailing whitespace and overly long lines.",
       "inputSchema": { "type": "object", "additionalProperties": false, "properties": { "maxLineLength": { "type": "integer", "minimum": 40, "maximum": 500 } } },
       "outputSchema": { "type": "object", "required": ["issues"], "properties": { "issues": { "type": "integer" } } },
-      "accepts": ["osnova.note"], "produces": ["osnova-labs.note-linter.report"], "risk": "project-write", "agentVisibility": "automatic", "execution": "job", "timeoutSeconds": 30, "cancellable": true, "idempotent": true,
+      "accepts": ["queryn.note"], "produces": ["queryn-labs.note-linter.report"], "risk": "project-write", "agentVisibility": "automatic", "execution": "job", "timeoutSeconds": 30, "cancellable": true, "idempotent": true,
       "permissions": ["artifact:read", "artifact:create"]
     }],
-    "artifactTypes": [{ "id": "osnova-labs.note-linter.report", "title": "Lint report", "mediaTypes": ["text/markdown"], "context": { "mode": "automatic" } }]
+    "artifactTypes": [{ "id": "queryn-labs.note-linter.report", "title": "Lint report", "mediaTypes": ["text/markdown"], "context": { "mode": "automatic" } }]
   }
 }
