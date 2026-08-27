@@ -1,16 +1,16 @@
 {
   "manifestVersion": "1",
-  "id": "osnova-labs.oci-media",
+  "id": "queryn-labs.oci-media",
   "name": "OCI Media Tool",
   "version": "1.0.0",
   "description": "Developer Mode template for a digest-pinned OCI Advanced Tool.",
   "license": "MIT",
-  "osnova": { "minVersion": "0.2.0" },
+  "queryn": { "minVersion": "0.2.0" },
   "permissions": ["artifact:create"],
-  "runtimes": [{ "id": "osnova-labs.oci-media.runtime", "kind": "oci", "lifecycle": "job", "image": "ghcr.io/osnova-labs/media-tool@sha256:0000000000000000000000000000000000000000000000000000000000000000", "resources": { "cpu": 1, "memoryMb": 256, "diskMb": 64, "network": false } }],
+  "runtimes": [{ "id": "queryn-labs.oci-media.runtime", "kind": "oci", "lifecycle": "job", "image": "ghcr.io/queryn-labs/media-tool@sha256:0000000000000000000000000000000000000000000000000000000000000000", "resources": { "cpu": 1, "memoryMb": 256, "diskMb": 64, "network": false } }],
   "contributes": {
-    "tools": [{ "id": "osnova-labs.oci-media.tool", "title": "OCI Media", "runtimeId": "osnova-labs.oci-media.runtime" }],
-    "operations": [{ "id": "osnova-labs.oci-media.generate", "toolId": "osnova-labs.oci-media.tool", "version": "1.0.0", "title": "Generate in container", "inputSchema": { "type": "object", "required": ["text"], "properties": { "text": { "type": "string" } } }, "outputSchema": { "type": "object" }, "produces": ["osnova-labs.oci-media.output"], "risk": "project-write", "agentVisibility": "explicit", "execution": "job", "timeoutSeconds": 60, "cancellable": true, "idempotent": true, "permissions": ["artifact:create"] }],
-    "artifactTypes": [{ "id": "osnova-labs.oci-media.output", "title": "OCI output", "mediaTypes": ["text/markdown"], "context": { "mode": "automatic" } }]
+    "tools": [{ "id": "queryn-labs.oci-media.tool", "title": "OCI Media", "runtimeId": "queryn-labs.oci-media.runtime" }],
+    "operations": [{ "id": "queryn-labs.oci-media.generate", "toolId": "queryn-labs.oci-media.tool", "version": "1.0.0", "title": "Generate in container", "inputSchema": { "type": "object", "required": ["text"], "properties": { "text": { "type": "string" } } }, "outputSchema": { "type": "object" }, "produces": ["queryn-labs.oci-media.output"], "risk": "project-write", "agentVisibility": "explicit", "execution": "job", "timeoutSeconds": 60, "cancellable": true, "idempotent": true, "permissions": ["artifact:create"] }],
+    "artifactTypes": [{ "id": "queryn-labs.oci-media.output", "title": "OCI output", "mediaTypes": ["text/markdown"], "context": { "mode": "automatic" } }]
   }
 }

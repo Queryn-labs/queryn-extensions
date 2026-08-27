@@ -1,10 +1,10 @@
 {
   "formatVersion": "1",
   "extensions": [
-    { "id": "osnova-labs.note-linter", "name": "Note Linter", "version": "1.0.0", "source": "examples/note-linter", "kind": "tool", "permissions": ["artifact:read", "artifact:create"], "osnova": { "minVersion": "0.2.0" }, "signed": false },
-    { "id": "osnova-labs.media-studio", "name": "Media Studio", "version": "1.0.0", "source": "examples/advanced-media-tool", "kind": "advanced-tool", "permissions": ["artifact:create"], "osnova": { "minVersion": "0.2.0" }, "signed": false },
-    { "id": "osnova-labs.oci-media", "name": "OCI Media Tool", "version": "1.0.0", "source": "examples/oci-advanced-tool", "kind": "advanced-tool", "permissions": ["artifact:create"], "osnova": { "minVersion": "0.2.0" }, "signed": false },
-    { "id": "osnova-labs.minimal-theme", "name": "Minimal Theme", "version": "1.0.0", "source": "examples/theme-minimal", "kind": "theme", "permissions": [], "osnova": { "minVersion": "0.2.0" }, "signed": false },
-    { "id": "osnova-labs.mcp-example", "name": "MCP Adapter Example", "version": "1.0.0", "source": "examples/mcp-adapter", "kind": "advanced-tool", "permissions": ["network:use"], "osnova": { "minVersion": "0.2.0" }, "signed": false }
+    { "id": "queryn-labs.note-linter", "name": "Note Linter", "version": "1.0.0", "source": "examples/note-linter", "kind": "tool", "permissions": ["artifact:read", "artifact:create"], "queryn": { "minVersion": "0.2.0" }, "signed": false },
+    { "id": "queryn-labs.media-studio", "name": "Media Studio", "version": "1.0.0", "source": "examples/advanced-media-tool", "kind": "advanced-tool", "permissions": ["artifact:create"], "queryn": { "minVersion": "0.2.0" }, "signed": false },
+    { "id": "queryn-labs.oci-media", "name": "OCI Media Tool", "version": "1.0.0", "source": "examples/oci-advanced-tool", "kind": "advanced-tool", "permissions": ["artifact:create"], "queryn": { "minVersion": "0.2.0" }, "signed": false },
+    { "id": "queryn-labs.minimal-theme", "name": "Minimal Theme", "version": "1.0.0", "source": "examples/theme-minimal", "kind": "theme", "permissions": [], "queryn": { "minVersion": "0.2.0" }, "signed": false },
+    { "id": "queryn-labs.mcp-example", "name": "MCP Adapter Example", "version": "1.0.0", "source": "examples/mcp-adapter", "kind": "advanced-tool", "permissions": ["network:use"], "queryn": { "minVersion": "0.2.0" }, "signed": false }
   ]
 }

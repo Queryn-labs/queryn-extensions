@@ -1,28 +1,28 @@
 {
   "manifestVersion": "1",
-  "id": "osnova-labs.media-studio",
+  "id": "queryn-labs.media-studio",
   "name": "Advanced Media Studio",
   "version": "1.0.0",
   "description": "Reference Advanced Tool producing text, audio and an image in an isolated process.",
   "license": "MIT",
-  "osnova": { "minVersion": "0.2.0" },
+  "queryn": { "minVersion": "0.2.0" },
   "permissions": ["artifact:create"],
-  "runtimes": [{ "id": "osnova-labs.media-studio.runtime", "kind": "node-process", "lifecycle": "job", "entry": "server.mjs", "resources": { "cpu": 1, "memoryMb": 256, "diskMb": 64, "network": false } }],
+  "runtimes": [{ "id": "queryn-labs.media-studio.runtime", "kind": "node-process", "lifecycle": "job", "entry": "server.mjs", "resources": { "cpu": 1, "memoryMb": 256, "diskMb": 64, "network": false } }],
   "contributes": {
-    "tools": [{ "id": "osnova-labs.media-studio.tool", "title": "Media Studio", "runtimeId": "osnova-labs.media-studio.runtime" }],
+    "tools": [{ "id": "queryn-labs.media-studio.tool", "title": "Media Studio", "runtimeId": "queryn-labs.media-studio.runtime" }],
     "operations": [{
-      "id": "osnova-labs.media-studio.generate", "toolId": "osnova-labs.media-studio.tool", "version": "1.0.0", "title": "Generate study media",
+      "id": "queryn-labs.media-studio.generate", "toolId": "queryn-labs.media-studio.tool", "version": "1.0.0", "title": "Generate study media",
       "description": "Creates a Markdown summary, WAV cue and SVG card. The tool, not the agent, owns media generation.",
       "inputSchema": { "type": "object", "required": ["text"], "additionalProperties": false, "properties": { "text": { "type": "string", "minLength": 1, "maxLength": 4000 }, "frequency": { "type": "integer", "minimum": 110, "maximum": 880 } } },
       "outputSchema": { "type": "object", "required": ["durationMs", "outputs"], "properties": { "durationMs": { "type": "integer" }, "outputs": { "type": "integer" } } },
-      "produces": ["osnova-labs.media-studio.text", "osnova-labs.media-studio.audio", "osnova-labs.media-studio.image"],
+      "produces": ["queryn-labs.media-studio.text", "queryn-labs.media-studio.audio", "queryn-labs.media-studio.image"],
       "risk": "project-write", "agentVisibility": "automatic", "execution": "job", "timeoutSeconds": 60, "cancellable": true, "idempotent": true,
       "permissions": ["artifact:create"], "resources": { "cpu": 1, "memoryMb": 256, "diskMb": 64, "network": false }
     }],
     "artifactTypes": [
-      { "id": "osnova-labs.media-studio.text", "title": "Study summary", "mediaTypes": ["text/markdown"], "context": { "mode": "automatic" } },
-      { "id": "osnova-labs.media-studio.audio", "title": "Audio cue", "mediaTypes": ["audio/wav"], "context": { "mode": "automatic" } },
-      { "id": "osnova-labs.media-studio.image", "title": "Study card", "mediaTypes": ["image/svg+xml"], "context": { "mode": "none" } }
+      { "id": "queryn-labs.media-studio.text", "title": "Study summary", "mediaTypes": ["text/markdown"], "context": { "mode": "automatic" } },
+      { "id": "queryn-labs.media-studio.audio", "title": "Audio cue", "mediaTypes": ["audio/wav"], "context": { "mode": "automatic" } },
+      { "id": "queryn-labs.media-studio.image", "title": "Study card", "mediaTypes": ["image/svg+xml"], "context": { "mode": "none" } }
     ]
   }
 }

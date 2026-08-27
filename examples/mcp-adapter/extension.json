@@ -1,17 +1,17 @@
 {
   "manifestVersion": "1",
-  "id": "osnova-labs.mcp-example",
+  "id": "queryn-labs.mcp-example",
   "name": "MCP Adapter Example",
   "version": "1.0.0",
-  "description": "Maps an explicit remote MCP tool to an Osnova operation.",
+  "description": "Maps an explicit remote MCP tool to a Queryn operation.",
   "license": "MIT",
-  "osnova": { "minVersion": "0.2.0" },
+  "queryn": { "minVersion": "0.2.0" },
   "permissions": ["artifact:read", "network:use", "background:run"],
-  "runtimes": [{ "id": "osnova-labs.mcp-example.runtime", "kind": "remote", "lifecycle": "shared", "endpoint": "http://127.0.0.1:3999/mcp", "protocol": "mcp", "idleTimeoutSeconds": 300, "resources": { "network": true } }],
+  "runtimes": [{ "id": "queryn-labs.mcp-example.runtime", "kind": "remote", "lifecycle": "shared", "endpoint": "http://127.0.0.1:3999/mcp", "protocol": "mcp", "idleTimeoutSeconds": 300, "resources": { "network": true } }],
   "contributes": {
-    "tools": [{ "id": "osnova-labs.mcp-example.tool", "title": "Local MCP Example", "runtimeId": "osnova-labs.mcp-example.runtime" }],
-    "operations": [{ "id": "osnova-labs.mcp-example.search", "toolId": "osnova-labs.mcp-example.tool", "version": "1.0.0", "title": "Search through MCP", "inputSchema": { "type": "object", "required": ["query"], "properties": { "query": { "type": "string" } } }, "outputSchema": { "type": "object" }, "risk": "network-egress", "agentVisibility": "explicit", "execution": "job", "timeoutSeconds": 60, "cancellable": true, "idempotent": true, "permissions": ["network:use", "background:run"] }],
-    "artifactTypes": [{ "id": "osnova-labs.mcp-example.resource", "title": "MCP resource", "context": { "mode": "custom", "providerId": "osnova-labs.mcp-example.resource-context" } }],
-    "contextProviders": [{ "id": "osnova-labs.mcp-example.resource-context", "artifactTypes": ["osnova-labs.mcp-example.resource"], "version": "1.0.0", "runtimeId": "osnova-labs.mcp-example.runtime", "resourceUriTemplate": "osnova://resources/{artifactId}" }]
+    "tools": [{ "id": "queryn-labs.mcp-example.tool", "title": "Local MCP Example", "runtimeId": "queryn-labs.mcp-example.runtime" }],
+    "operations": [{ "id": "queryn-labs.mcp-example.search", "toolId": "queryn-labs.mcp-example.tool", "version": "1.0.0", "title": "Search through MCP", "inputSchema": { "type": "object", "required": ["query"], "properties": { "query": { "type": "string" } } }, "outputSchema": { "type": "object" }, "risk": "network-egress", "agentVisibility": "explicit", "execution": "job", "timeoutSeconds": 60, "cancellable": true, "idempotent": true, "permissions": ["network:use", "background:run"] }],
+    "artifactTypes": [{ "id": "queryn-labs.mcp-example.resource", "title": "MCP resource", "context": { "mode": "custom", "providerId": "queryn-labs.mcp-example.resource-context" } }],
+    "contextProviders": [{ "id": "queryn-labs.mcp-example.resource-context", "artifactTypes": ["queryn-labs.mcp-example.resource"], "version": "1.0.0", "runtimeId": "queryn-labs.mcp-example.runtime", "resourceUriTemplate": "queryn://resources/{artifactId}" }]
   }
 }

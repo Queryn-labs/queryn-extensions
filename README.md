@@ -1,7 +1,7 @@
-# osnova-plugins
+# queryn-extensions
 
-Проверяемый каталог и reference-расширения Osnova Reborn.
-Каноническая [страница документации](https://github.com/Queryn-labs/osnova-docs) описывает место каталога в экосистеме расширений.
+Проверяемый каталог и reference-расширения Queryn.
+Каноническая [страница документации](https://github.com/Queryn-labs/queryn-docs) описывает место каталога в экосистеме расширений.
 
 ## Статус
 
@@ -28,7 +28,7 @@ npm run test:runtime
 Каталог владеет registry schema, registry entries и примерами:
 
 - `note-linter` — Tool, читающий входной Markdown и создающий отчёт-артефакт.
-- `advanced-media-tool` — Advanced Tool на Osnova Tool Protocol v1, создающий
+- `advanced-media-tool` — Advanced Tool на Queryn Tool Protocol v1, создающий
   Markdown, WAV и SVG в отдельном процессе.
 - `oci-advanced-tool` — контейнерный вариант с digest-pinned image placeholder
   для Developer Mode.
@@ -39,13 +39,13 @@ npm run test:runtime
 
 ## Связанные репозитории
 
-- `osnova-plugin-sdk` задаёт manifest, permissions и формат упаковки.
-- `osnova-runtime` загружает и исполняет расширения, а также проверяет
+- `queryn-sdk` задаёт manifest, permissions и формат упаковки.
+- `queryn-runtime` загружает и исполняет расширения, а также проверяет
   cross-repo runtime-контракт.
-- `osnova-spec` определяет схемы проекта и Extension Manifest v1.
-- `osnova-desktop` предоставляет интерфейс управления инструментами через
+- `queryn-spec` определяет схемы проекта и Extension Manifest v1.
+- `queryn-desktop` предоставляет интерфейс управления инструментами через
   runtime.
-- `osnova-docs` содержит нормативную документацию экосистемы.
+- `queryn-docs` содержит нормативную документацию экосистемы.
 
 ## Лицензия
 

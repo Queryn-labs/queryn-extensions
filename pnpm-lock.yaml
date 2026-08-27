@@ -8,11 +8,11 @@ importers:
 
   .:
     dependencies:
-      '@osnova/plugin-sdk':
-        specifier: file:../osnova-plugin-sdk
-        version: link:../osnova-plugin-sdk
+      '@queryn/plugin-sdk':
+        specifier: file:../queryn-sdk
+        version: link:../queryn-sdk
 
-  ../osnova-plugin-sdk:
+  ../queryn-sdk:
     devDependencies:
       '@types/node':
         specifier: ^22.10.7

@@ -1,5 +1,5 @@
 packages:
   - .
-  - ../osnova-plugin-sdk
+  - ../queryn-sdk
 
 linkWorkspacePackages: true

@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://plugins.osnova.local/catalog/registry.schema.json",
-  "title": "Osnova Extension Registry",
+  "$id": "https://plugins.queryn.local/catalog/registry.schema.json",
+  "title": "Queryn Extension Registry",
   "type": "object",
   "required": ["formatVersion", "extensions"],
   "additionalProperties": false,
@@ -11,7 +11,7 @@
       "type": "array",
       "items": {
         "type": "object",
-        "required": ["id", "name", "version", "source", "kind", "permissions", "osnova", "signed"],
+        "required": ["id", "name", "version", "source", "kind", "permissions", "queryn", "signed"],
         "additionalProperties": false,
         "properties": {
           "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9._-]+$" },
@@ -22,7 +22,7 @@
           "kind": { "enum": ["theme", "tool", "advanced-tool"] },
           "permissions": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
           "signed": { "type": "boolean" },
-          "osnova": { "type": "object", "required": ["minVersion"], "additionalProperties": false, "properties": { "minVersion": { "type": "string" } } }
+          "queryn": { "type": "object", "required": ["minVersion"], "additionalProperties": false, "properties": { "minVersion": { "type": "string" } } }
         }
       }
     }

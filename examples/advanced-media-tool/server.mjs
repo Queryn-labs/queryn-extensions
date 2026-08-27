@@ -15,7 +15,7 @@ readline.createInterface({ input: process.stdin }).on("line", async (line) => {
 async function dispatch(method, params) {
   if (method === "initialize") return { protocolVersion: "1", capabilities: { jobs: true, cancellation: true, progress: true } };
   if (method === "health") return { status: "ready" };
-  if (method === "operations/list") return { operations: ["osnova-labs.media-studio.generate"] };
+  if (method === "operations/list") return { operations: ["queryn-labs.media-studio.generate"] };
   if (method === "shutdown") return { ok: true };
   if (method !== "jobs/start") throw new Error(`Unknown method: ${method}`);
   const text = String(params.input.text);
@@ -32,9 +32,9 @@ async function dispatch(method, params) {
   return {
     structured: { durationMs: 400, outputs: 3 },
     artifacts: [
-      { type: "osnova-labs.media-studio.text", title: "Study summary", payloads: [{ path: "summary.md", mediaType: "text/markdown" }], context: { mode: "automatic" } },
-      { type: "osnova-labs.media-studio.audio", title: "Audio cue", payloads: [{ path: "cue.wav", mediaType: "audio/wav" }], context: { mode: "automatic" }, metadata: { durationMs: 400, frequency } },
-      { type: "osnova-labs.media-studio.image", title: "Study card", payloads: [{ path: "card.svg", mediaType: "image/svg+xml" }], context: { mode: "none" } }
+      { type: "queryn-labs.media-studio.text", title: "Study summary", payloads: [{ path: "summary.md", mediaType: "text/markdown" }], context: { mode: "automatic" } },
+      { type: "queryn-labs.media-studio.audio", title: "Audio cue", payloads: [{ path: "cue.wav", mediaType: "audio/wav" }], context: { mode: "automatic" }, metadata: { durationMs: 400, frequency } },
+      { type: "queryn-labs.media-studio.image", title: "Study card", payloads: [{ path: "card.svg", mediaType: "image/svg+xml" }], context: { mode: "none" } }
     ]
   };
 }
@@ -54,7 +54,7 @@ function createWav(frequency, seconds) {
 
 function createSvg(text) {
   const safe = text.slice(0, 80).replace(/[&<>"']/g, (character) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "\"": "&quot;", "'": "&apos;" })[character]);
-  return `<svg xmlns="http://www.w3.org/2000/svg" width="800" height="450"><rect width="100%" height="100%" rx="30" fill="#151515"/><circle cx="95" cy="90" r="34" fill="#d12f6a"/><text x="70" y="230" fill="#f4f0ed" font-family="system-ui" font-size="34">${safe}</text><text x="70" y="380" fill="#d12f6a" font-family="system-ui" font-size="24">OSNOVA</text></svg>`;
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="800" height="450"><rect width="100%" height="100%" rx="30" fill="#151515"/><circle cx="95" cy="90" r="34" fill="#d12f6a"/><text x="70" y="230" fill="#f4f0ed" font-family="system-ui" font-size="34">${safe}</text><text x="70" y="380" fill="#d12f6a" font-family="system-ui" font-size="24">QUERYN</text></svg>`;
 }
 
 function ok(id, result) { process.stdout.write(`${JSON.stringify({ jsonrpc: "2.0", id, result })}\n`); }
